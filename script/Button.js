@@ -18,10 +18,21 @@ var Button = {
 					$(this).data("handler")($(this));
 				}
 			})
+			.dblclick(function(e) {
+				e.preventDefault();
+				var isAuto = !el.data('auto');
+				el.data('auto', isAuto);
+				if(isAuto) {
+					el.addClass('auto');
+				} else {
+					el.removeClass('auto');
+				}
+			})
 			.data("handler",  typeof options.click == 'function' ? options.click : function() { Engine.log("click"); })
 			.data("remaining", 0)
 			.data("cooldown", typeof options.cooldown == 'number' ? options.cooldown : 0)
-			.data('boosted', options.boosted ?? (() => false));
+			.data('boosted', options.boosted ?? (() => false))
+			.data('auto', false);
 
 		el.append($("<div>").addClass('cooldown'));
 
@@ -107,6 +118,11 @@ var Button = {
 			}
 			$('div.cooldown', btn).width(left * 100 +"%").animate({width: '0%'}, time * 1000, 'linear', function() {
 				Button.clearCooldown(btn, true);
+				// Auto mode: directly call handler + start cooldown (bypass click event)
+				if(btn.data('auto') && !btn.data('disabled')) {
+					Button.cooldown(btn);
+					btn.data("handler")(btn);
+				}
 			});
 			btn.addClass('disabled');
 			btn.data('onCooldown', true);

@@ -276,6 +276,14 @@ div.button div.cooldown {
 	background-color: #DDDDDD;
 }
 
+div.button.auto div.cooldown {
+	background-color: rgba(179, 157, 219, 0.35);
+}
+
+div.button.auto {
+	box-shadow: 0 0 4px 1px rgba(179, 157, 219, 0.4);
+}
+
 /* Up/Down buttons. They're complicated! */
 
 .upBtn, .dnBtn, .upManyBtn, .dnManyBtn {

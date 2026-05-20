@@ -4,6 +4,28 @@ A Dark Room
 
 a minimalist text adventure game for your browser
 
+Fork of [doublespeakgames/adarkroom](https://github.com/doublespeakgames/adarkroom).
+
+## Quick Start
+
+```bash
+make run      # 英文版，自动安装依赖 + 启动 + 打开浏览器 (localhost:8080)
+make run-cn   # 简体中文版
+make stop     # 停止服务
+```
+
+## What's New
+
+### Auto Mode (自动化)
+
+Double-click any button with a cooldown bar (e.g. stoke fire, gather wood, check traps) to enable auto mode. The cooldown bar turns light purple, and the action will repeat automatically when the cooldown expires. Double-click again to cancel.
+
+双击任何带冷却条的按钮（如添柴、收集木材、检查陷阱）即可开启自动模式。冷却条会变为淡紫色，冷却结束后自动重复执行。再次双击取消。
+
+### Chinese Translation (简体中文补全)
+
+Added 245 missing Chinese (zh_cn) translations, covering the entire starship exploration storyline (Executioner events), fabricator module, and UI elements. All source strings are now fully translated.
+
 [Click to play](http://adarkroom.doublespeakgames.com)
 
 <table>
